@@ -1,0 +1,68 @@
+scalar GraphQlDate
+
+type Course {
+    id: ID!
+    title: String!
+    description: String
+    instructor: String
+    publishedDate: GraphQlDate
+    lectures: [Lecture]
+}
+
+type Lecture {
+    id: ID!
+    title: String!
+    description: String
+    videoUrl: String
+    duration: Int
+    publishedDate: GraphQlDate
+}
+
+type User {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    enrolledCourses: [Course]
+}
+
+type Query {
+    courseList: [Course]
+    lectureList(courseId: ID!): [Lecture]
+    userList: [User]
+    userEnrolledCourses(userId: ID!): [Course]
+}
+
+input CourseInput {
+    title: String!
+    description: String
+    instructor: String
+    publishedDate: GraphQlDate
+}
+
+input LectureInput {
+    courseId: ID!
+    title: String!
+    description: String
+    videoUrl: String
+    duration: Int
+    publishedDate: GraphQlDate
+}
+
+input UserInput {
+    firstName: String!
+    lastName: String!
+    email: String!
+}
+
+input EnrollmentInput {
+    userId: ID!
+    courseId: ID!
+}
+
+type Mutation {
+    addCourse(course: CourseInput): Course
+    addLecture(lecture: LectureInput): Lecture
+    addUser(user: UserInput): User
+    enrollUserInCourse(enrollment: EnrollmentInput): Course
+}
