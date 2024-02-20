@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This is the Backend Repo of My NextSkill Project.",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
@@ -19,7 +20,10 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "md5": "^2.3.0",
-    "mongoose": "^8.1.1"
+    "mongoose": "^8.1.1",
+    "@apollo/server": "^4.9.4",
+    "graphql": "^16.8.1",
+    "mongodb": "^6.1.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.3"
