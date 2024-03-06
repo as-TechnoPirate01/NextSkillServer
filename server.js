@@ -3,12 +3,15 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
+const coursesRoutes = require('./routes/coursesRoutes');
+const videosRoutes = require('./routes/videosRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://nithinkumarkatru:hello@cluster0.zrplywq.mongodb.net/');
+mongoose.connect('mongodb+srv://asaharajan:KWaterloo@cluster0.6clqnb5.mongodb.net/');
+// mongodb+srv://asaharajan:KWaterloo@cluster0.6clqnb5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {
